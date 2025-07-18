@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -28,8 +29,11 @@ builder.Services
     });
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.MapControllers();
 app.UseAuthentication();
 app.UseAuthorization();
 
