@@ -5,11 +5,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = $"https://{builder.Configuration["Auth0:Domain"]}/";
+        options.Authority = domain;
         options.Audience = builder.Configuration["Auth0:Audience"];
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -23,9 +24,10 @@ builder.Services
         options.AddPolicy(
             "read:messages",
             policy => policy.Requirements.Add(
-                new HasScopeRequirement("read:messages", builder.Configuration["Auth0:Domain"]!)
-            )
-        );
+                new HasScopeRequirement("read:messages",
+                    domain
+                )
+            ));
     });
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
