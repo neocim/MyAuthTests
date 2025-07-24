@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthTests;
+namespace BasicAuth;
 
 public class ApiController : ControllerBase
 {
     [HttpGet("protected")]
     [Authorize]
-    public ActionResult<String> ProtectedHello()
+    public ActionResult<string> ProtectedHello()
     {
         Console.WriteLine("IN PROTECTED HELLO");
         return "Protected hello";
@@ -15,7 +15,7 @@ public class ApiController : ControllerBase
 
     [HttpGet("private")]
     [Authorize("read:messages")]
-    public ActionResult<String> PrivateHello()
+    public ActionResult<string> PrivateHello()
     {
         Console.WriteLine("IN PRIVATE HELLO");
         return "Private hello";

@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using AuthTests;
+using BasicAuth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;

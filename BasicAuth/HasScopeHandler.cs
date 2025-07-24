@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace AuthTests;
+namespace BasicAuth;
 
 public class HasScopeHandler : AuthorizationHandler<HasScopeRequirement>
 {
