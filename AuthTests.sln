@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 #
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicAuth", "BasicAuth\BasicAuth.csproj", "{A67BD31B-6417-4CF9-9969-5B73B1DDFF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterAuth", "BetterAuth\BetterAuth.csproj", "{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,17 @@ Global
 		{A67BD31B-6417-4CF9-9969-5B73B1DDFF42}.Release|x64.Build.0 = Release|Any CPU
 		{A67BD31B-6417-4CF9-9969-5B73B1DDFF42}.Release|x86.ActiveCfg = Release|Any CPU
 		{A67BD31B-6417-4CF9-9969-5B73B1DDFF42}.Release|x86.Build.0 = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|x64.Build.0 = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|x64.ActiveCfg = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|x64.Build.0 = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF1231DF-5E1D-46EE-9C81-B7CDB3C8C9ED}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
