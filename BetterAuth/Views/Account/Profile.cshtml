@@ -1,11 +1,9 @@
-@model (string Name, string EmailAddress)
+@model BetterAuth.UserProfileViewModel
 @{
-    ViewData["Title"] = "User Pipiska";
+    ViewData["Title"] = "User Profile";
 }
 
 <h2>@ViewData["Title"]</h2>
-<h2>@ViewData["Message"]</h2>
-<h2>@Model.Name</h2>
-<h2>@Model.EmailAddress</h2>
 
-Hello
+<h3>Your name is `@Model.Name`</h3>
+<h3>And your email is `@Model.Email`</h3>

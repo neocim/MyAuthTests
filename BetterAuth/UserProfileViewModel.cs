@@ -1,5 +1,3 @@
 namespace BetterAuth;
 
-public class UserProfile
-{
-}
+public record UserProfileViewModel(string Name, string Email);

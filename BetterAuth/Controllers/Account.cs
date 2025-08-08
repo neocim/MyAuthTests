@@ -11,10 +11,11 @@ namespace BetterAuth.Controllers;
 public class AccountController : Controller
 {
     [HttpPost("login")]
-    public async Task Login(string redirectPath = "/")
+    public async Task Login()
     {
         var authProperties = new LoginAuthenticationPropertiesBuilder()
-            .WithRedirectUri(redirectPath).Build();
+            .WithRedirectUri("/")
+            .Build();
 
         await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme,
             authProperties);
@@ -22,13 +23,14 @@ public class AccountController : Controller
 
     [Authorize]
     [HttpGet("profile")]
-    public IActionResult Profile()
+    public async Task<IActionResult> Profile()
     {
-        ViewData["Message"] = "Your application description page.";
+        var accessToken = await HttpContext.GetTokenAsync("access_token");
+        Console.WriteLine($"Access token:\n{accessToken}");
 
-        return View((User.Identity!.Name, User.Claims
+        return View(new UserProfileViewModel(User.Identity!.Name!, User.Claims
             .FirstOrDefault(c => c.Type == ClaimTypes.Email)
-            ?.Value));
+            ?.Value!));
     }
 
     [Authorize]
