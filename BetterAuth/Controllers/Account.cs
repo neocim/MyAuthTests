@@ -10,11 +10,11 @@ namespace BetterAuth.Controllers;
 [Route("account")]
 public class AccountController : Controller
 {
-    [HttpPost("login")]
+    [HttpGet("login")]
     public async Task Login()
     {
         var authProperties = new LoginAuthenticationPropertiesBuilder()
-            .WithRedirectUri("/")
+            .WithRedirectUri("/account/profile")
             .Build();
 
         await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme,
@@ -23,18 +23,27 @@ public class AccountController : Controller
 
     [Authorize]
     [HttpGet("profile")]
-    public async Task<IActionResult> Profile()
+    public async Task<ActionResult> Profile()
     {
         var accessToken = await HttpContext.GetTokenAsync("access_token");
         Console.WriteLine($"Access token:\n{accessToken}");
 
-        return View(new UserProfileViewModel(User.Identity!.Name!, User.Claims
-            .FirstOrDefault(c => c.Type == ClaimTypes.Email)
-            ?.Value!));
+        return View(new UserProfileViewModel(
+            User.Identity?.Name!,
+            User.Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Email)
+                ?.Value!, User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value!));
     }
 
     [Authorize]
-    [HttpPost("logout")]
+    [HttpGet("claims")]
+    public ActionResult Claims()
+    {
+        return View();
+    }
+
+    [Authorize]
+    [HttpGet("logout")]
     public async Task Logout()
     {
         var authProperties = new LoginAuthenticationPropertiesBuilder()

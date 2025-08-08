@@ -4,23 +4,28 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<h3>Your claims:</h3>
-<thead>
-<tr>
-    <th>
-        Claim
-    </th>
-    <th>
-        Value
-    </th>
-</tr>
-</thead>
-<tbody>
-@foreach (var claim in User.Claims)
-{
-    <tr>
-        <td>@claim.Type</td>
-        <td>@claim.Value</td>
-    </tr>
-}
-</tbody>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Claim
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var claim in User.Claims)
+            {
+                <tr>
+                    <td>@claim.Type</td>
+                    <td>@claim.Value</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
